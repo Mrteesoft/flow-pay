@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+[[ -f runtime/local.env ]] || { echo "runtime/local.env missing; run scripts/reset-local.sh first" >&2; exit 1; }
+BSC_OVERRIDE="${FLOWPAY_BSC_RPC_OVERRIDE:-}"
+set -a
+[[ -f .env ]] && source .env
+source runtime/local.env
+set +a
+[[ -n "$BSC_OVERRIDE" ]] && export BSC_RPC_URL="$BSC_OVERRIDE"
+export FLOWPAY_WEBHOOK_ENCRYPTION_KEY="${FLOWPAY_WEBHOOK_ENCRYPTION_KEY:-0000000000000000000000000000000000000000000000000000000000000000}"
+export FLOWPAY_API_KEY_HASH_PEPPER="${FLOWPAY_API_KEY_HASH_PEPPER:-local-dev-pepper-change-me}"
+export RABBITMQ_URL="${RABBITMQ_URL:-amqp://guest:guest@127.0.0.1:5672/%2f}"
+MODE="${1:-${FLOWPAY_AGENT_MODE:-model}}"
+export FLOWPAY_AGENT_MODE="$MODE"
+if [[ "$MODE" == "model" && "${FLOWPAY_MODEL_PROVIDER:-openai}" == "openai" && -z "${OPENAI_API_KEY:-}" ]]; then
+  echo "OPENAI_API_KEY is required when FLOWPAY_MODEL_PROVIDER=openai" >&2
+  exit 2
+fi
+BIN=backend/target/debug/flowpay-api-server
+if [[ -x "$BIN" ]]; then exec "$BIN"; fi
+command -v cargo >/dev/null || { echo "cargo is required" >&2; exit 1; }
+exec cargo run --manifest-path backend/Cargo.toml -q -p flowpay-api-server

@@ -1,0 +1,21 @@
+import type {SVGProps} from "react";
+
+type P=SVGProps<SVGSVGElement>;
+const I=({children,...props}:P&{children:React.ReactNode})=><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>{children}</svg>;
+export const HomeIcon=(p:P)=><I {...p}><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></I>;
+export const PaymentIcon=(p:P)=><I {...p}><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 10h18M7 15h4"/></I>;
+export const ClaimIcon=(p:P)=><I {...p}><path d="M12 22a9 9 0 1 0-9-9c0 2 .7 3.9 1.9 5.4L4 22l3.7-.9A9 9 0 0 0 12 22Z"/><path d="M9.5 9.5a2.6 2.6 0 0 1 5 1c0 2-2.5 2.1-2.5 4M12 18h.01"/></I>;
+export const CodeIcon=(p:P)=><I {...p}><path d="m8 9-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></I>;
+export const SettingsIcon=(p:P)=><I {...p}><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21h-4v-.09A1.7 1.7 0 0 0 8 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 3.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H2v-4h.09A1.7 1.7 0 0 0 3.6 8a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 8 3.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V2h4v.09A1.7 1.7 0 0 0 15 3.6a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 8c.13.37.34.7.6 1 .28.3.67.47 1.09.49H21v4h-.09A1.7 1.7 0 0 0 19.4 15Z"/></I>;
+export const SearchIcon=(p:P)=><I {...p}><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></I>;
+export const BellIcon=(p:P)=><I {...p}><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></I>;
+export const PlusIcon=(p:P)=><I {...p}><path d="M12 5v14M5 12h14"/></I>;
+export const ArrowUpRightIcon=(p:P)=><I {...p}><path d="M7 17 17 7M8 7h9v9"/></I>;
+export const ArrowRightIcon=(p:P)=><I {...p}><path d="M5 12h14m-6-6 6 6-6 6"/></I>;
+export const ArrowLeftIcon=(p:P)=><I {...p}><path d="M19 12H5m6 6-6-6 6-6"/></I>;
+export const MoreIcon=(p:P)=><I {...p}><circle cx="5" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="19" cy="12" r="1" fill="currentColor" stroke="none"/></I>;
+export const ShieldIcon=(p:P)=><I {...p}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></I>;
+export const BotIcon=(p:P)=><I {...p}><rect x="5" y="7" width="14" height="11" rx="4"/><path d="M12 3v4M8 12h.01M16 12h.01M9 16h6"/></I>;
+export const CheckIcon=(p:P)=><I {...p}><path d="m5 12 4 4L19 6"/></I>;
+export const AlertIcon=(p:P)=><I {...p}><path d="M10.3 3.6 2.5 17a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 3.6a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></I>;
+export const WalletIcon=(p:P)=><I {...p}><path d="M4 6h14a2 2 0 0 1 2 2v10H4a2 2 0 0 1-2-2V6a3 3 0 0 1 3-3h12"/><path d="M16 11h5v4h-5a2 2 0 1 1 0-4Z"/></I>;
